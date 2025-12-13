@@ -33,10 +33,11 @@
   (ok (var-get count))
 )
 
-;; Clarity 4 feature: Get count as ASCII string
-(define-read-only (get-count-as-string)
-  (ok (to-ascii? (var-get count)))
-)
+;; Note: to-ascii? is not yet available on testnet
+;; Clarity 4 feature: Get count as ASCII string (disabled for testnet compatibility)
+;; (define-read-only (get-count-as-string)
+;;   (ok (to-ascii? (var-get count)))
+;; )
 
 ;; Clarity 4 feature: Get timestamp when count was last updated
 (define-read-only (get-current-time)

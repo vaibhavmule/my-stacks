@@ -76,7 +76,8 @@
   (ok stacks-block-time)
 )
 
-;; Clarity 4 feature: Convert message count to ASCII string
-(define-read-only (get-message-count-as-string)
-  (ok (to-ascii? (var-get message-count)))
-)
+;; Note: to-ascii? is not yet available on testnet
+;; Clarity 4 feature: Convert message count to ASCII string (disabled for testnet compatibility)
+;; (define-read-only (get-message-count-as-string)
+;;   (ok (to-ascii? (var-get message-count)))
+;; )

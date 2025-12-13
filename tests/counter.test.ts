@@ -48,20 +48,21 @@ describe("counter tests", () => {
     expect(result.result).toHaveClarityType(ClarityType.ResponseErr);
   });
 
-  it("gets count as ASCII string using Clarity 4 to-ascii", () => {
-    // Increment a few times
-    simnet.callPublicFn("counter", "increment", [], address1);
-    simnet.callPublicFn("counter", "increment", [], address1);
-    
-    let result = simnet.callReadOnlyFn(
-      "counter",
-      "get-count-as-string",
-      [],
-      address1
-    );
-    
-    expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
-  });
+  // Note: to-ascii? is not yet available on testnet
+  // it("gets count as ASCII string using Clarity 4 to-ascii", () => {
+  //   // Increment a few times
+  //   simnet.callPublicFn("counter", "increment", [], address1);
+  //   simnet.callPublicFn("counter", "increment", [], address1);
+  //   
+  //   let result = simnet.callReadOnlyFn(
+  //     "counter",
+  //     "get-count-as-string",
+  //     [],
+  //     address1
+  //   );
+  //   
+  //   expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
+  // });
 
   it("gets current block time using Clarity 4 stacks-block-time", () => {
     let result = simnet.callReadOnlyFn(

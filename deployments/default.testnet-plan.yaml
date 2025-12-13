@@ -11,14 +11,14 @@ plan:
         - contract-publish:
             contract-name: counter
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            cost: 375765
+            cost: 56397572
             path: contracts/counter.clar
             anchor-block-only: true
             clarity-version: 4
         - contract-publish:
             contract-name: message-board
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            cost: 376172
+            cost: 56458663
             path: contracts/message-board.clar
             anchor-block-only: true
             clarity-version: 4

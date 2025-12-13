@@ -40,22 +40,23 @@ describe("message board tests", () => {
     expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
   });
 
-  it("converts message count to ASCII string using Clarity 4 to-ascii", () => {
-    // Add a message first
-    simnet.callPublicFn(
-      "message-board",
-      "add-message",
-      [Cl.stringUtf8(content)],
-      address1
-    );
-    
-    let result = simnet.callReadOnlyFn(
-      "message-board",
-      "get-message-count-as-string",
-      [],
-      address1
-    );
-    
-    expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
-  });
+  // Note: to-ascii? is not yet available on testnet
+  // it("converts message count to ASCII string using Clarity 4 to-ascii", () => {
+  //   // Add a message first
+  //   simnet.callPublicFn(
+  //     "message-board",
+  //     "add-message",
+  //     [Cl.stringUtf8(content)],
+  //     address1
+  //   );
+  //   
+  //   let result = simnet.callReadOnlyFn(
+  //     "message-board",
+  //     "get-message-count-as-string",
+  //     [],
+  //     address1
+  //   );
+  //   
+  //   expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
+  // });
 });
