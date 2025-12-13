@@ -5,8 +5,6 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 
-[[project.requirements]]
-contract_id = 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-deposit'
 [contracts.counter]
 path = 'contracts/counter.clar'
 clarity_version = 4
