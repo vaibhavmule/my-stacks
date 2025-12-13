@@ -1,7 +1,7 @@
 ;; title: message-board
 ;; version: 1.0.0
-;; summary: A message board contract
-;; description: Users can add messages with timestamps using burn-block-height
+;; summary: A message board contract using Clarity 4 features
+;; description: Users can add messages. Demonstrates Clarity 4: contract-hash? and restrict-assets?
 
 ;; constants
 (define-constant CONTRACT_OWNER tx-sender)
@@ -76,8 +76,19 @@
   (ok burn-block-height)
 )
 
-;; Note: to-ascii? is not yet available on testnet
-;; Clarity 4 feature: Convert message count to ASCII string (disabled for testnet compatibility)
-;; (define-read-only (get-message-count-as-string)
-;;   (ok (to-ascii? (var-get message-count)))
-;; )
+;; Clarity 4 feature: Get contract hash (contract-hash?)
+;; Returns (response (buff 32) uint) - the hash of the contract's code body
+(define-read-only (get-contract-hash (contract-principal principal))
+  (contract-hash? contract-principal)
+)
+
+;; Clarity 4 feature: Verify contract hash
+;; Checks if the contract hash matches the expected hash
+(define-read-only (verify-contract-hash (contract-principal principal) (expected-hash (buff 32)))
+  (let ((contract-hash-result (contract-hash? contract-principal)))
+    (match contract-hash-result
+      hash (ok (is-eq hash expected-hash))
+      err-code (ok false)
+    )
+  )
+)

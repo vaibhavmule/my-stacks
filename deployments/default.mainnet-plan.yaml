@@ -10,15 +10,15 @@ plan:
       transactions:
         - contract-publish:
             contract-name: counter
-            expected-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            cost: 962175
+            expected-sender: SP3AZ8QEJXQNA6SH2T9BB8GRQ8JPWJ05Z0SAD70DH
+            cost: 4049779
             path: contracts/counter.clar
             anchor-block-only: true
             clarity-version: 4
         - contract-publish:
             contract-name: message-board
-            expected-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            cost: 962413
+            expected-sender: SP3AZ8QEJXQNA6SH2T9BB8GRQ8JPWJ05Z0SAD70DH
+            cost: 4050447
             path: contracts/message-board.clar
             anchor-block-only: true
             clarity-version: 4
