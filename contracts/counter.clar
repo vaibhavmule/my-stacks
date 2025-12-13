@@ -1,7 +1,7 @@
 ;; title: counter
 ;; version: 1.0.0
-;; summary: A simple counter contract using Clarity 4 features
-;; description: Demonstrates stacks-block-time and to-ascii? from Clarity 4
+;; summary: A simple counter contract
+;; description: Basic counter with increment/decrement functionality
 
 ;; data vars
 (define-data-var count uint u0)
@@ -39,7 +39,7 @@
 ;;   (ok (to-ascii? (var-get count)))
 ;; )
 
-;; Clarity 4 feature: Get timestamp when count was last updated
-(define-read-only (get-current-time)
-  (ok stacks-block-time)
+;; Get current burn block height (alternative to stacks-block-time for testnet compatibility)
+(define-read-only (get-current-block-height)
+  (ok burn-block-height)
 )

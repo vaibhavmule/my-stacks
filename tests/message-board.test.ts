@@ -29,10 +29,10 @@ describe("message board tests", () => {
     expect(message.result).toHaveClarityType(ClarityType.OptionalSome);
   });
 
-  it("gets current block time using Clarity 4 stacks-block-time", () => {
+  it("gets current block height", () => {
     let result = simnet.callReadOnlyFn(
       "message-board",
-      "get-current-block-time",
+      "get-current-block-height",
       [],
       address1
     );

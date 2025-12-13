@@ -64,10 +64,10 @@ describe("counter tests", () => {
   //   expect(result.result).toHaveClarityType(ClarityType.ResponseOk);
   // });
 
-  it("gets current block time using Clarity 4 stacks-block-time", () => {
+  it("gets current block height", () => {
     let result = simnet.callReadOnlyFn(
       "counter",
-      "get-current-time",
+      "get-current-block-height",
       [],
       address1
     );

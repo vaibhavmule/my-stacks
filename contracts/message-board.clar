@@ -1,7 +1,7 @@
 ;; title: message-board
 ;; version: 1.0.0
-;; summary: A message board contract using Clarity 4 features
-;; description: Users can add messages. Uses stacks-block-time (Clarity 4) for timestamps.
+;; summary: A message board contract
+;; description: Users can add messages with timestamps using burn-block-height
 
 ;; constants
 (define-constant CONTRACT_OWNER tx-sender)
@@ -30,11 +30,11 @@
     
     ;; Get next message ID
     (let ((id (+ (var-get message-count) u1)))
-      ;; Store message data with Clarity 4 stacks-block-time
+      ;; Store message data with burn-block-height for timestamp
       (map-set messages { id: id } {
         content: content,
         author: contract-caller,
-        timestamp: stacks-block-time
+        timestamp: burn-block-height
       })
       ;; Update message count
       (var-set message-count id)
@@ -44,7 +44,7 @@
         message: content,
         id: id,
         author: contract-caller,
-        time: stacks-block-time,
+        time: burn-block-height,
       })
       ;; Return the message ID
       (ok id)
@@ -71,9 +71,9 @@
   ))
 )
 
-;; Clarity 4 feature: Get current block timestamp
-(define-read-only (get-current-block-time)
-  (ok stacks-block-time)
+;; Get current burn block height (alternative to stacks-block-time for testnet compatibility)
+(define-read-only (get-current-block-height)
+  (ok burn-block-height)
 )
 
 ;; Note: to-ascii? is not yet available on testnet
