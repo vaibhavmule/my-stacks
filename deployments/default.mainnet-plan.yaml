@@ -1,0 +1,25 @@
+---
+id: 0
+name: Mainnet deployment
+network: mainnet
+stacks-node: "https://api.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoin.blockstack.com:8332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: counter
+            expected-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
+            cost: 962175
+            path: contracts/counter.clar
+            anchor-block-only: true
+            clarity-version: 4
+        - contract-publish:
+            contract-name: message-board
+            expected-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
+            cost: 962413
+            path: contracts/message-board.clar
+            anchor-block-only: true
+            clarity-version: 4
+      epoch: "3.3"
