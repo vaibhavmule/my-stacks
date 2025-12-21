@@ -4,9 +4,14 @@ description = ''
 authors = []
 telemetry = true
 cache_dir = './.cache'
-
+requirements = []
 [contracts.counter]
 path = 'contracts/counter.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.daily-checkin]
+path = 'contracts/daily-checkin.clar'
 clarity_version = 4
 epoch = 'latest'
 
